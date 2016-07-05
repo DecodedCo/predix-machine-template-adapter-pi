@@ -84,6 +84,9 @@ public class RaspberryPISubscriptionAdapter
 
         @Meta.AD(id = DATA_SUBSCRIPTIONS, name = "%dataSubscriptions.name", description = "%dataSubscriptions.description", required = true, deflt = "")
         String dataSubscriptions();
+        
+		@Meta.AD(id = TAG_ID, name = "%tagId.name", description = "%tagId.description", required = false, deflt = "")
+		String tagId();
     }
 
     /** Service PID for Sample Machine Adapter */
@@ -99,7 +102,9 @@ public class RaspberryPISubscriptionAdapter
     /** Key for machine adapter description */
     public static final String                ADAPTER_DESCRIPTION = SERVICE_PID + ".Description";                                //$NON-NLS-1$
     /** data subscriptions */
-    public static final String                DATA_SUBSCRIPTIONS  = SERVICE_PID + ".DataSubscriptions";                          //$NON-NLS-1$
+    public static final String                DATA_SUBSCRIPTIONS  = SERVICE_PID + ".DataSubscriptions";                          //$NON-NLS-1$    
+    /** Tag ID */
+	public static final String				  TAG_ID 			  = SERVICE_PID + ".TagId";										//$NON-NLS-1$    
     /** The regular expression used to split property values into String array. */
     public final static String                SPLIT_PATTERN       = "\\s*\\|\\s*";                                               //$NON-NLS-1$
 
@@ -152,6 +157,8 @@ public class RaspberryPISubscriptionAdapter
         this.props = ctx.getProperties();
 
         this.config = Configurable.createConfigurable(Config.class, ctx.getProperties());
+		_logger.debug("##### Machine subscription with Tag ID: " + this.config.tagId() + " #####");
+
 
         this.updateInterval = Integer.parseInt(this.config.updateInterval());
         ObjectMapper mapper = new ObjectMapper();
@@ -160,7 +167,7 @@ public class RaspberryPISubscriptionAdapter
         {
             //
         });
-        createNodes(nodes);
+        createNodes(nodes, this.config.tagId());
 
         this.adapterInfo = new MachineAdapterInfo(this.config.adapterName(),
                 RaspberryPISubscriptionAdapter.SERVICE_PID, this.config.adapterDescription(), ctx
@@ -468,11 +475,11 @@ public class RaspberryPISubscriptionAdapter
      * 
      * @param count of nodes
      */
-    private void createNodes(List<JsonDataNode> nodes)
+    private void createNodes(List<JsonDataNode> nodes, String tagId)
     {
         for (JsonDataNode jsonNode:nodes)
         {
-                WorkshopDataNodePI node = new WorkshopDataNodePI(this.uuid, jsonNode.getNodeName(),jsonNode.getNodeType(),jsonNode.getNodePin()); //$NON-NLS-1$	
+                WorkshopDataNodePI node = new WorkshopDataNodePI(this.uuid, jsonNode.getNodeName() + "-" + tagId,jsonNode.getNodeType(),jsonNode.getNodePin()); //$NON-NLS-1$	
 	            // Create a new node and put it in the cache.
 	            this.dataNodes.put(node.getNodeId(), node);
             
