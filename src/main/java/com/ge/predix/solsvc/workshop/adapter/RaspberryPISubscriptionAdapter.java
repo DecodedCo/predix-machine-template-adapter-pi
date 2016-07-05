@@ -12,7 +12,6 @@ package com.ge.predix.solsvc.workshop.adapter;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.ByteBuffer;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -303,10 +302,9 @@ public class RaspberryPISubscriptionAdapter
 			switch (node.getNodeType()) {
 				case "Light": //$NON-NLS-1$
 					fvalue = node.getLightNode().get();
-				break;
+					break;
 				case "Temperature": //$NON-NLS-1$
-					byte[] tempValue = node.getTempNode().get();
-					fvalue = new Double(df.format(ByteBuffer.wrap(tempValue).getDouble()));
+					fvalue = node.getTempNode().get().getTemperature();
 					break;
 				case "Sound": //$NON-NLS-1$
 					fvalue = node.getSoundNode().get();

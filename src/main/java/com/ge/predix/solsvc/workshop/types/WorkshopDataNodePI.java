@@ -14,13 +14,13 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.UUID;
 
-import org.iot.raspberry.grovepi.GroveAnalogIn;
 import org.iot.raspberry.grovepi.GroveDigitalIn;
 import org.iot.raspberry.grovepi.GroveDigitalOut;
 import org.iot.raspberry.grovepi.devices.GroveLed;
 import org.iot.raspberry.grovepi.devices.GroveLightSensor;
 import org.iot.raspberry.grovepi.devices.GroveRotarySensor;
 import org.iot.raspberry.grovepi.devices.GroveSoundSensor;
+import org.iot.raspberry.grovepi.devices.GroveTemperatureAndHumiditySensor;
 import org.iot.raspberry.grovepi.pi4j.GrovePi4J;
 
 import com.ge.dspmicro.machinegateway.types.PDataNode;
@@ -36,7 +36,7 @@ public class WorkshopDataNodePI extends PDataNode
 	
 	private GroveRotarySensor rotaryNode;
 	
-	private GroveAnalogIn tempNode;
+	private GroveTemperatureAndHumiditySensor tempNode;
 	
 	private GroveSoundSensor soundNode;
 	
@@ -63,7 +63,7 @@ public class WorkshopDataNodePI extends PDataNode
 				this.lightNode = new GroveLightSensor(pi, nodePin);
 				break;
 			case "Temperature": //$NON-NLS-1$
-				this.tempNode = new GroveAnalogIn(pi, nodePin, 1024);
+				this.tempNode = new GroveTemperatureAndHumiditySensor(pi, nodePin, GroveTemperatureAndHumiditySensor.Type.DHT11);
 				break;
 			case "Sound": //$NON-NLS-1$
 				this.soundNode = new GroveSoundSensor(pi, nodePin);
@@ -134,11 +134,11 @@ public class WorkshopDataNodePI extends PDataNode
 		this.rotaryNode = rotaryNode;
 	}
 
-	public GroveAnalogIn getTempNode() {
+	public GroveTemperatureAndHumiditySensor getTempNode() {
 		return tempNode;
 	}
 
-	public void setTempNode(GroveAnalogIn tempNode) {
+	public void setTempNode(GroveTemperatureAndHumiditySensor tempNode) {
 		this.tempNode = tempNode;
 	}
 
