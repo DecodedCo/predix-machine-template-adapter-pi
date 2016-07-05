@@ -31,3 +31,5 @@
 (java.lang.RuntimePermission "getStackTrace")
 (java.io.FilePermission "${predix.home.dir}/-" "read")
 (java.io.FilePermission "/usr/lib/-" "read")
+(java.io.FilePermission "/tmp/-" "read,write,delete")
+(java.lang.RuntimePermission "loadLibrary.*" "*")
