@@ -13,5 +13,10 @@
       "nodeName": "Button:TAE",  
       "nodeType": "Button",  
       "nodePin": 3
+   },
+   {
+      "nodeName": "Temperature:TAE",
+      "nodeType": "Temperature",
+      "nodePin": 4
    }
 ]
