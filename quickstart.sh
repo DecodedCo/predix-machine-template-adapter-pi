@@ -3,7 +3,7 @@ scriptRootDir=$(dirname $0)
 machineHome="$1"
 pathToPredixEdgeStarter="../../"
 
-
+echo "Running adapter script automatically - GE XLP"
 
 echo "#################### Build and setup the adatper for Raspberry PI start ####################"
 	
