@@ -6,11 +6,11 @@ pathToPredixEdgeStarter="../../"
 echo "Running adapter script automatically - GE XLP"
 
 echo "#################### Build and setup the adatper for Raspberry PI start ####################"
-	
+
 cp $scriptRootDir/config/com.ge.predix.solsvc.workshop.adapter.config $machineHome/configuration/machine
 cp $scriptRootDir/config/com.ge.predix.workshop.nodeconfig.json $machineHome/configuration/machine
 cp $scriptRootDir/config/com.ge.dspmicro.hoover.spillway-0.config $machineHome/configuration/machine
-
+cp $scriptRootDir/config/com.ge.dspmicro.httpriver.send-0.config $machineHome/configuration/machine
 #Download dependencies code and build
 git clone https://github.com/emoranchel/IoTDevices.git
 
@@ -28,6 +28,6 @@ mvn -q clean install -Dmaven.compiler.source=1.8 -Dmaven.compiler.target=1.8 -f 
 cp $scriptRootDir/config/solution.ini $machineHome/machine/bin/vms
 echo "Copying cp $scriptRootDir/target/predix-machine-template-adapter-pi-1.0.jar $machineHome/machine/bundles"
 cp $scriptRootDir/target/predix-machine-template-adapter-pi-1.0.jar $machineHome/machine/bundles
-rm -rf IoTDevices	
+rm -rf IoTDevices
 
 echo "#################### Build and setup the adatper for Raspberry PI end ####################"
