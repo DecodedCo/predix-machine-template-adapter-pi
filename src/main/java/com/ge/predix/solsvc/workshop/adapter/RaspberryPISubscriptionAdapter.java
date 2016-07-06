@@ -320,7 +320,10 @@ public class RaspberryPISubscriptionAdapter
 					double sensorValue = node.getRotaryNode().get().getSensorValue();
 					double calculatedValue = Math.round((sensorValue) * ADC_REF / 1023);
 					
-					fvalue = new Double(df.format(calculatedValue));
+					//fvalue = new Double(df.format(calculatedValue));
+					double degreeValue = node.getRotaryNode().get().getDegrees();
+					double degreeRoundedValue = Math.round(degreeValue);
+					fvalue = degreeRoundedValue;
 					GroveLed ledPin = node.getLedNode();
 					if (calculatedValue > 3.0) {
 						ledPin.set(true);
