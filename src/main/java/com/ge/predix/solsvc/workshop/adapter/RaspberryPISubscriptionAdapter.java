@@ -320,24 +320,25 @@ public class RaspberryPISubscriptionAdapter
 					fvalue = node.getSoundNode().get();
 					break;
 				case "RotaryAngle": //$NON-NLS-1$
+					double degreeValue = node.getRotaryNode().get().getDegrees();
+					fvalue = Math.round(degreeValue);
+					/*
 					double sensorValue = node.getRotaryNode().get().getSensorValue();
 					double calculatedValue = Math.round((sensorValue) * ADC_REF / 1023);
 					
-					//fvalue = new Double(df.format(calculatedValue));
-					double degreeValue = node.getRotaryNode().get().getDegrees();
-					double degreeRoundedValue = Math.round(degreeValue);
-					fvalue = degreeRoundedValue;
+					fvalue = new Double(df.format(calculatedValue));
 					GroveLed ledPin = node.getLedNode();
 					if (calculatedValue > 3.0) {
 						ledPin.set(true);
 					}else {
 						ledPin.set(false);
 					}
+					*/
 					break;
 				case "Button":
 					boolean value = node.getButtonNode().get();
 					fvalue = value ? 1.0 : 0.0;
-					node.getBuzzerNode().set(value);
+					//node.getBuzzerNode().set(value);
 					break;
 				default:
 					break;
