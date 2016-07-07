@@ -65,16 +65,19 @@ public class WorkshopDataNodePI extends PDataNode
 			case "Temperature": //$NON-NLS-1$
 				this.tempNode = new GroveTemperatureAndHumiditySensor(pi, nodePin, GroveTemperatureAndHumiditySensor.Type.DHT11);
 				break;
+			case "Humidity": //$NON-NLS-1$
+				this.tempNode = new GroveTemperatureAndHumiditySensor(pi, nodePin, GroveTemperatureAndHumiditySensor.Type.DHT11);
+				break;
 			case "Sound": //$NON-NLS-1$
 				this.soundNode = new GroveSoundSensor(pi, nodePin);
 				break;
 			case "RotaryAngle": //$NON-NLS-1$
 				this.rotaryNode = new GroveRotarySensor(pi,nodePin);
-				this.ledNode = new GroveLed(new GrovePi4J(),3);
+				//this.ledNode = new GroveLed(new GrovePi4J(),3);
 				break;
 			case "Button": //$NON-NLS-1$
 				this.buttonNode = new GroveDigitalIn(pi, nodePin);
-				this.buzzerNode = new GroveDigitalOut(pi, 5);	
+				//this.buzzerNode = new GroveDigitalOut(pi, 5);	
 				break;
 			case "Buzzer":
 				

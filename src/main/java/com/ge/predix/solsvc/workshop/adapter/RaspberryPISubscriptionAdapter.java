@@ -313,6 +313,9 @@ public class RaspberryPISubscriptionAdapter
 				case "Temperature": //$NON-NLS-1$
 					fvalue = node.getTempNode().get().getTemperature();
 					break;
+				case "Humidity": //$NON-NLS-1$
+					fvalue = node.getTempNode().get().getHumidity();
+					break;
 				case "Sound": //$NON-NLS-1$
 					fvalue = node.getSoundNode().get();
 					break;
