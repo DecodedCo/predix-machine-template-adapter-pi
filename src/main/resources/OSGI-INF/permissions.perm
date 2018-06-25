@@ -15,6 +15,9 @@
 # Bundle Wiring for pax logging.
 (org.osgi.framework.AdaptPermission "(adaptClass=org.osgi.framework.wiring.BundleRevision)" "adapt")
 
+# allow capability access to OSGi
+(org.osgi.framework.CapabilityPermission "osgi.ee" "require")
+
 # Generic stuff
 (org.osgi.service.cm.ConfigurationPermission "*" "configure")
 (org.osgi.service.event.TopicPermission "*" "publish")

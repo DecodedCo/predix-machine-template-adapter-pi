@@ -11,6 +11,7 @@
 package com.ge.predix.solsvc.workshop.types;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import com.ge.dspmicro.machinegateway.api.adapter.IDataSubscriptionListener;
@@ -60,5 +61,15 @@ public class WorkshopSubscriptionListener
 	public void onSubscriptionDelete(ISubscriptionMachineAdapter sender, UUID subscriptionId)
     {
         // Auto-generated method stub
+    }
+
+    /* (non-Javadoc)
+     * @see com.ge.dspmicro.machinegateway.api.adapter.IDataSubscriptionListener#onDataUpdate(com.ge.dspmicro.machinegateway.api.adapter.ISubscriptionMachineAdapter, java.util.Map, java.util.List)
+     */
+    @Override
+    public void onDataUpdate(ISubscriptionMachineAdapter arg0, Map<String, String> arg1, List<PDataValue> arg2)
+    {
+        // TODO Auto-generated method stub
+        
     }
 }

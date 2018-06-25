@@ -11,6 +11,7 @@
 package com.ge.predix.solsvc.workshop.processor;
 
 import java.util.List;
+import java.util.Map;
 
 import org.osgi.service.component.ComponentContext;
 import org.slf4j.Logger;
@@ -20,6 +21,7 @@ import com.ge.dspmicro.hoover.api.processor.IProcessor;
 import com.ge.dspmicro.hoover.api.processor.ProcessorException;
 import com.ge.dspmicro.hoover.api.spillway.ITransferData;
 import com.ge.dspmicro.machinegateway.types.ITransferable;
+import com.ge.predixmachine.datamodel.datacomm.EdgeDataList;
 
 import aQute.bnd.annotation.component.Activate;
 import aQute.bnd.annotation.component.Component;
@@ -71,12 +73,34 @@ public class SampleProcessor
         }
     }
  
-    @Override
     public void processValues(String processType, List<ITransferable> values, ITransferData transferData)
             throws ProcessorException
     {
-    	_logger.info("VALUES :" +values.toString()); //$NON-NLS-1$ //$NON-NLS-2$
-    	transferData.transferData(values);
+        	_logger.info("VALUES :" +values.toString()); //$NON-NLS-1$ //$NON-NLS-2$
+        	transferData.transferData(values);
     }
+
+
+    /* (non-Javadoc)
+     * @see com.ge.dspmicro.hoover.api.processor.IProcessor#processValues(java.lang.String, java.util.Map, java.util.List, com.ge.dspmicro.hoover.api.spillway.ITransferData)
+     */
+    public void processValues(String arg0, Map<String, String> arg1, List<ITransferable> arg2, ITransferData arg3)
+            throws ProcessorException
+    {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+    /* (non-Javadoc)
+     * @see com.ge.dspmicro.hoover.api.processor.IProcessor#processValues(java.lang.String, java.util.Map, com.ge.predixmachine.datamodel.datacomm.EdgeDataList, com.ge.dspmicro.hoover.api.spillway.ITransferData)
+     */
+    public void processValues(String arg0, Map<String, String> arg1, EdgeDataList arg2, ITransferData arg3)
+            throws ProcessorException
+    {
+        // TODO Auto-generated method stub
+        
+    }
+
    
 }
