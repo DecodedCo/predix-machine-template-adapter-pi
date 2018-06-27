@@ -16,6 +16,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.List;
@@ -32,6 +33,7 @@ import org.slf4j.LoggerFactory;
 
 import com.ge.dspmicro.machinegateway.api.adapter.IDataSubscription;
 import com.ge.dspmicro.machinegateway.api.adapter.IDataSubscriptionListener;
+import com.ge.dspmicro.machinegateway.api.adapter.IEdgeDataSubscription;
 import com.ge.dspmicro.machinegateway.api.adapter.IMachineAdapter;
 import com.ge.dspmicro.machinegateway.api.adapter.ISubscriptionAdapterListener;
 import com.ge.dspmicro.machinegateway.api.adapter.ISubscriptionMachineAdapter;
@@ -45,6 +47,7 @@ import com.ge.predix.solsvc.workshop.config.JsonDataNode;
 import com.ge.predix.solsvc.workshop.types.WorkshopDataNodePI;
 import com.ge.predix.solsvc.workshop.types.WorkshopDataSubscription;
 import com.ge.predix.solsvc.workshop.types.WorkshopSubscriptionListener;
+import com.ge.predixmachine.datamodel.datacomm.EdgeData;
 
 import aQute.bnd.annotation.component.Activate;
 import aQute.bnd.annotation.component.Component;
@@ -517,5 +520,77 @@ public class RaspberryPISubscriptionAdapter
 		// TODO Auto-generated method stub
 		
 	}
+
+    /* (non-Javadoc)
+     * @see com.ge.dspmicro.machinegateway.api.adapter.IMachineAdapter#getEdgeDataNodes()
+     */
+    @Override
+    public List<PDataNode> getEdgeDataNodes()
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    /* (non-Javadoc)
+     * @see com.ge.dspmicro.machinegateway.api.adapter.IMachineAdapter#readEdgeData(java.util.UUID)
+     */
+    @Override
+    public EdgeData readEdgeData(UUID arg0)
+            throws MachineAdapterException
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    /* (non-Javadoc)
+     * @see com.ge.dspmicro.machinegateway.api.adapter.IMachineAdapter#writeEdgeData(java.util.UUID, com.ge.predixmachine.datamodel.datacomm.EdgeData)
+     */
+    @Override
+    public void writeEdgeData(UUID arg0, EdgeData arg1)
+            throws MachineAdapterException
+    {
+        // TODO Auto-generated method stub
+        
+    }
+
+    /* (non-Javadoc)
+     * @see com.ge.dspmicro.machinegateway.api.adapter.ISubscriptionMachineAdapter#addEdgeDataSubscription(com.ge.dspmicro.machinegateway.api.adapter.IEdgeDataSubscription)
+     */
+    @Override
+    public UUID addEdgeDataSubscription(IEdgeDataSubscription arg0)
+            throws MachineAdapterException
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    /* (non-Javadoc)
+     * @see com.ge.dspmicro.machinegateway.api.adapter.ISubscriptionMachineAdapter#getEdgeDataSubscription(java.util.UUID)
+     */
+    @Override
+    public IEdgeDataSubscription getEdgeDataSubscription(UUID arg0)
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    /* (non-Javadoc)
+     * @see com.ge.dspmicro.machinegateway.api.adapter.ISubscriptionMachineAdapter#getEdgeDataSubscriptions()
+     */
+    @Override
+    public List<IEdgeDataSubscription> getEdgeDataSubscriptions()
+    {
+        return Collections.emptyList();
+    }
+
+    /* (non-Javadoc)
+     * @see com.ge.dspmicro.machinegateway.api.adapter.ISubscriptionMachineAdapter#removeEdgeDataSubscription(java.util.UUID)
+     */
+    @Override
+    public void removeEdgeDataSubscription(UUID arg0)
+    {
+        // TODO Auto-generated method stub
+        
+    }
 
 }

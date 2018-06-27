@@ -161,4 +161,13 @@ public class WorkshopDataSubscription implements Runnable, IDataSubscription {
 			// Do other clean up if needed...
 		}
 	}
+
+    /* (non-Javadoc)
+     * @see com.ge.dspmicro.machinegateway.api.adapter.ISubscription#getUpdateIntervalMillis()
+     */
+    @Override
+    public long getUpdateIntervalMillis()
+    {
+        return this.updateInterval*1000L;
+    }
 }

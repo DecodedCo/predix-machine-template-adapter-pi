@@ -18,7 +18,23 @@ public class JsonDataNode {
 	private String nodeName;
 	private String nodeType;
 	private int nodePin;
+	private int nodeMin;
+	private int nodeMax;
 	/**
+     * @return the nodeMin
+     */
+    public int getNodeMin()
+    {
+        return this.nodeMin;
+    }
+    /**
+     * @param nodeMin the nodeMin to set
+     */
+    public void setNodeMin(int nodeMin)
+    {
+        this.nodeMin = nodeMin;
+    }
+    /**
 	 * @return -
 	 */
 	public String getNodeName() {
@@ -54,5 +70,19 @@ public class JsonDataNode {
 	public void setNodePin(int nodePin) {
 		this.nodePin = nodePin;
 	}
+    /**
+     * @return the nodeMax
+     */
+    public int getNodeMax()
+    {
+        return this.nodeMax;
+    }
+    /**
+     * @param nodeMax the nodeMax to set
+     */
+    public void setNodeMax(int nodeMax)
+    {
+        this.nodeMax = nodeMax;
+    }
 	
 }
